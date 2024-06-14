@@ -1,6 +1,6 @@
 export const sculptureList = [{
-    title: 'fdsafdsa',
-    content:'fdjksafa'
+    title: 'My First ever blog',
+    content:'This serves as an experiment. It is meant to test if the things are working fine.'
   }, {
     title: 'fdsafdsa',
     content:'angeldfas di maria'
