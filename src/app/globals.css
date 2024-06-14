@@ -121,5 +121,7 @@ p{
   right: 0;
 }
 #stories{
+  text-align: center;
+  left: 30%;
   max-width: 65%;
 }
