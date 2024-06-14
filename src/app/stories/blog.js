@@ -1,6 +1,6 @@
 export const sculptureList = [{
-    title: 'My First ever blog',
-    content:'This serves as an experiment. It is meant to test if the things are working fine.'
+    title: 'Before I can remember',
+    content:'I was born in a hospital in Nanjing, China. From then on, I have been living in this city. I grew up in a beautiful residential area. My parents always tell me about how I would have fun with the kids back home. '
   }, {
     title: 'My second ever blog',
     content:'angeldfas di maria'

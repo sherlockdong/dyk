@@ -23,7 +23,7 @@ export default function Gallery() {
   return (
     <>
       <h2> {sculpture.title}</h2>
-      <p> {sculpture.content}</p>
+      <p id="stories" > {sculpture.content}</p>
       <button id='scul' onClick={handleNextClick}><span>
         Next</span>
       </button>

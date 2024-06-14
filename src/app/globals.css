@@ -120,3 +120,6 @@ p{
   opacity: 1;
   right: 0;
 }
+#stories{
+  max-width: 65%;
+}
