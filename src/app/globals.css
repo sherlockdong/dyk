@@ -121,6 +121,12 @@ p{
   right: 0;
 }
 #stories{
-  text-align: center;
-  width: 90%;
+  text-align: left;
+  max-width: 80%;
+  padding-left: 9em;
+  text-indent: 20px;
+  font-size: 20px;
+}
+#st{
+  line-height: 3rem;
 }
