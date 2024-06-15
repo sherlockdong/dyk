@@ -4,8 +4,8 @@ export const sculptureList = [{
   footn:'Last updated: June 15, 2024'
 
 }, {
-  title: 'My second ever blog',
-  content:'angeldfas di maria'
+  title: 'My elementary school',
+  content:'One of the first thing I can remember about my elementary school is that, at first I did not like the school at all. I went to an interview from another school, '
 }, {
   title: 'fdsafdsa',
   content:'serge gnabry'

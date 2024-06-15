@@ -23,7 +23,7 @@ export default function Gallery() {
   return (
     <><div id='st'>
       <h2> {sculpture.title}</h2>
-      <h3>
+      <h3 id='lis'>
         ({index + 1} of {sculptureList.length})
       </h3>
       <p id="stories" > {sculpture.content}</p>
