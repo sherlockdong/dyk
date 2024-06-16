@@ -5,7 +5,7 @@ export const sculptureList = [{
 
 }, {
   title: 'My elementary school',
-  content:'One of the first thing I can remember about my elementary school is that, at first I did not like the school at all. I went to an interview from another school, '
+  content:'One of the first thing I can remember about my elementary school is that, at first I did not like the school at all. I went to an interview from another school which I really like, so when I heard that they rejected me, I was really sad. For several days I could not accept this news.'
 }, {
   title: 'fdsafdsa',
   content:'serge gnabry'

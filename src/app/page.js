@@ -15,53 +15,25 @@ export default function Home() {
 </div>
 
       <div className={styles.grid}>
-        <a
-          href="/project"
-          className={styles.card}
-        >
-          <h2>
+         <Link href='/projects' className={styles.card}> <h2>
             Projects <span>-&gt;</span>
           </h2>
-          <p>Take a look at my passion, and read some projects I do.</p>
-        </a>
+          <p>Take a look at my passion, and read some projects I do.</p></Link>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Images<span>-&gt;</span>
+          <Link href='/projects' className={styles.card}> <h2>
+            Images <span>-&gt;</span>
           </h2>
-          <p>I enjoy taking photos of the nature. Take a look at the images I took.</p>
-        </a>
+          <p>I enjoy taking photos of the nature. Take a look at the images I took.</p></Link>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
+          <Link href='/stories' className={styles.card}> <h2>
             Stories <span>-&gt;</span>
           </h2>
-          <p>Read my stories, my blogs, my experiences.</p>
-        </a>
+          <p>Read my stories, my blogs, my experiences.</p></Link>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Books I read <span>-&gt;</span>
+          <Link href='/books' className={styles.card}> <h2>
+            Books I read<span>-&gt;</span>
           </h2>
-          <p>
-            I enjoy reading books, so look at the books I read!
-          </p>
-        </a>
+          <p> I enjoy reading books, and I write reviews for some of my favorite books.</p></Link>
       </div>
     </main>
   );
