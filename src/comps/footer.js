@@ -5,9 +5,12 @@ const Footer =()=>{
 
         <p id='Footer'>
             Get in touch with me :
-            <Link href="https://www.instagram.com/sherlock.dong/">Instagram</Link><br />
-            copyright
-            <span>	&#169;</span>    2024 Sherlock Dong, All rights reserved.
+            <Link href="https://www.instagram.com/sherlock.dong/">Instagram</Link>
+            / 
+            <Link href="https://github.com/sherlockdong">Github</Link>
+
+            /<Link href="https://codeforces.com/profile/infantd">Codeforces</Link>/
+            <Link href="mailto:sherlockdong2007@gmail.com">Gmail</Link>
     </p>
 )
 }
