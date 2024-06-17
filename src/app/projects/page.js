@@ -1,17 +1,14 @@
 'use client';
-import styles from '../page.module.css'
+import Link from 'next/link'
 export default function proj() {
     return(
-        <a
-          href="https://pho-guide.com"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-           PHO-Guide<span>-&gt;</span>
-          </h2>
-          <p>Proudly present my project - PHO- GUIDE.</p>
-        </a>
+      <>
+      <Link  href="https://pho-guide.com"
+      target="_blank"
+      rel="noopener noreferrer"><h2>PHO - Guide  <span>-&gt;</span></h2> </Link>
+      <p>Proudly present my project, Physics Olympiad Guide, to dedicated physics students.</p>
+
+      
+</>
     )
 }
