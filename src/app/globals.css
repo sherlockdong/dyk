@@ -133,3 +133,7 @@ p{
 #lis{
   padding-left: 3em;
 }
+
+#Footer a{
+  color: lightblue;
+}
