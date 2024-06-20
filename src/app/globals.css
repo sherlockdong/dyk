@@ -46,7 +46,6 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 3em;
-
   font-size: 25px;
   font-weight:bold;
   font-family: "Tiny5", sans-serif;
@@ -130,10 +129,41 @@ p{
 #st{
   line-height: 3rem;
 }
-#lis{
-  padding-left: 3em;
+#sculeft{
+  font-size: 20px;
+  margin-left: 2000px;
+  color :white;
+  cursor: pointer;
+  background-color: transparent;
+  border: transparent;
+}
+#sculeft span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
 }
 
+#sculeft span:after {
+  content: '\00ab';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#sculeft:hover span {
+  padding-right: 25px;
+}
+
+#sculeft:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+#leng{
+  padding-left: 3rem;
+}
 #Footer a{
   color: lightblue;
 }
