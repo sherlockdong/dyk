@@ -61,8 +61,8 @@ a {
   display: inherit;
   flex-direction: inherit;
   font-size: 0.85rem;
-  max-width: var(--max-width);
   width: 70%;
+  max-width: var(--max-width);
 }
 #right a{
   font-size: 15px;
@@ -83,17 +83,18 @@ a {
 h2{
   text-align: center;
 }
+
 p{
   text-align: center;
   color: white;
 }
 #scul{
   font-size: 20px;
-  margin-left: 2000px;
+  margin-left: 200px;
   color :white;
   cursor: pointer;
   background-color: transparent;
-  border: transparent;
+  border: white;
 }
 #scul span {
   cursor: pointer;
@@ -131,7 +132,7 @@ p{
 }
 #sculeft{
   font-size: 20px;
-  margin-left: 2000px;
+  margin-left: 100px;
   color :white;
   cursor: pointer;
   background-color: transparent;
