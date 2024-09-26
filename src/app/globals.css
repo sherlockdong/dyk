@@ -168,3 +168,10 @@ p{
 #Footer a{
   color: lightblue;
 }
+#books p{
+  max-width: 80%;
+  margin-left: 120px;
+  word-spacing: 110%;
+  text-align: left;
+  line-height: 150%;
+}
