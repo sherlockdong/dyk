@@ -8,8 +8,9 @@ export default function Home() {
         <h3> Welcome to my Personal website: Sherlcok Dong.</h3>
       </div>
 <div className={styles.mid}>
-  <p id="mid">Hi there. I am a sophomore in Highschool. I am from Nanjing, China, and I am currently going to school in the United States. I went to Nanjing JinLin High School Hexi Branch for elementary school for Grade 1-5, NFLS Xianlin for Grade 6, NFLS for 
-    middle school, and Berkshire School for High School. <br />
+  <p id="mid">Hi there. I am a sophomore in Highschool. I am from Nanjing, China. I am glad that you are here. If you want to know 
+    more about me, start exloring my website! I have a lot of hobbies, including soccer, swimming and badminton. My favorite subject 
+    is physics, and I love math as well. If you want to contact me, just email me using the link on the bottom!<br />
   </p>
   <p className={styles.chn}> <br /> 欢迎来到我的个人主页。</p>
 </div>
