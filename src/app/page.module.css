@@ -6,7 +6,7 @@
   align-items: center;
   padding: 6rem;
   min-height: 80vh;
-
+margin-bottom: 100px;
 }
 
 .description {
@@ -223,10 +223,12 @@
 }
 .mid{
   line-height: 25px;
-  max-width: 65%;
+  max-width: 75%;
   font-size: 15px;
   text-align: center;
   font-family: var(--font-mono);
+  line-height: 150%;
+  margin-top: 55px;
 
 }
 .chn{
@@ -234,4 +236,55 @@
   font-weight: 400;
   font-style: normal;
   font-size: 32px;
+  margin-bottom: 100px;
+}
+
+.sec1 {
+  grid-template-columns: 1fr;
+  margin-bottom: 120px;
+  max-width: 320px;
+  text-align: center;
+}
+.sec1 p{
+  line-height: 150%;
+  padding: 10px;
+}
+.lag{
+  margin-top: 2.4em;
+  margin-bottom: 50px;
+}
+.lag p{
+  margin-top: 25px;
+  max-width: 110%;
+  margin-left: -5%;
+}
+.lag h4{
+  margin-top: 20px;
+}
+.lag h3{
+  margin-top: 33px;
+  margin-left: -7%;
+}
+.link-section{
+  margin-bottom: 100px;
+}
+.sec1 {
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  display: flex;
+  grid-template-columns: repeat(4, minmax(25%, auto));
+  max-width: 100%;
+  width: var(--max-width);
+  perspective: 1000px;
+}
+.frn p{
+  max-width: 110%;
+}
+.frn h3{
+  margin-left: 3em;
+  color:dodgerblue;
+}
+.mad h3{
+  color: red;
 }

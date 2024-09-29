@@ -178,3 +178,15 @@ p{
   text-align: left;
   line-height: 150%;
 }
+#sec1 h2{
+  color:darkorchid;
+  margin-left: -800px;
+}
+  p{
+
+  max-width: 80%;
+  margin-left: 120px;
+  word-spacing: 110%;
+  text-align: left;
+  line-height: 150%;
+  }
