@@ -10,7 +10,7 @@ export default function Home() {
 <div className={styles.mid}>
   <p id="mid">Hi there. I am a sophomore in Highschool. I am from Nanjing, China. I am glad that you are here. If you want to know 
     more about me, start exloring my website! I have a lot of hobbies, including soccer, swimming and badminton. My favorite subject 
-    is physics, and I love math as well. If you want to contact me, just email me using the link on the bottom!<br />
+    is physics, and I love math as well. If you want to contact me, just email me using the link on the bottom! <br />
   </p>
   <p className={styles.chn}> <br /> 欢迎来到我的个人主页。</p>
 </div>

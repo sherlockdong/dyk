@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
-@import url(https://kit.fontawesome.com/a076d05399.js);
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
 :root {
   background-image: linear-gradient(to bottom,navy, black );
   color: white;
@@ -12,6 +12,13 @@
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
+}
+body.dark-theme {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --link-color: #bb86fc;
+  --button-bg-color: #333;
+  --button-text-color: #fff;
 }
 * {
   box-sizing: border-box;
@@ -70,7 +77,7 @@ a {
 #Footer{
   color: white;
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 400;
   line-height: 40px;
 }
@@ -183,10 +190,31 @@ p{
   margin-left: -800px;
 }
   p{
-
   max-width: 80%;
   margin-left: 120px;
   word-spacing: 110%;
   text-align: left;
   line-height: 150%;
   }
+
+#Footer i{
+  align-items: center;
+  font-size: 150%;
+  margin-right: 3em;
+}
+#cpy{
+  margin-top: 50px;
+  margin-left: 8em;
+}
+#upper{
+  display: flex;
+  justify-content: space-between;
+}
+.column{
+  flex: 1;
+  padding: 10px;
+}
+.column h3{
+  margin-top: 20px;
+  margin-left: 8em;
+}

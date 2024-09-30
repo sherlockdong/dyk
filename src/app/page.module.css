@@ -6,7 +6,7 @@
   align-items: center;
   padding: 6rem;
   min-height: 80vh;
-margin-bottom: 100px;
+margin-bottom: 10px;
 }
 
 .description {
@@ -241,7 +241,6 @@ margin-bottom: 100px;
 
 .sec1 {
   grid-template-columns: 1fr;
-  margin-bottom: 120px;
   max-width: 320px;
   text-align: center;
 }
@@ -259,7 +258,11 @@ margin-bottom: 100px;
   margin-left: -5%;
 }
 .lag h4{
+  transition: color 0.3s ease;
   margin-top: 20px;
+}
+.lag h4:hover{
+  color: greenyellow;
 }
 .lag h3{
   margin-top: 33px;
