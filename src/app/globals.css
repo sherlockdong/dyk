@@ -51,12 +51,17 @@ a {
   font-size: 15px;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   padding: 3em;
   font-size: 25px;
   font-weight:bold;
   font-family: "Tiny5", sans-serif;
   font-weight: 400;
+}
+#header h2{
+  transition: color 0.3s ease;
+}
+#header h2:hover{
+  color:dodgerblue;
 }
 #header a{
   font-style: normal;
@@ -183,6 +188,8 @@ p{
   margin-left: 120px;
   word-spacing: 110%;
   text-align: left;
+  margin-bottom: 3em;
+  font-size: 18px;
   line-height: 150%;
 }
 #sec1 h2{
@@ -217,4 +224,12 @@ p{
 .column h3{
   margin-top: 20px;
   margin-left: 8em;
+}
+.gallery{ 
+  width: 1000px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  padding-left: 9em;
+  margin-bottom: 5em;
 }

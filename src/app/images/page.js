@@ -1,14 +1,22 @@
 'use client'
-
+import React from 'react'
+import Image from 'next/image'
+import sq from './sq.jpg'
+import wq from './wq.jpg'
 
 const imag= () => {
-    return (<>
-    <img src="./IMG_5915.jpg" alt="Description of the image" width="500" height="auto" />
+    
+    return (
+        <>
+    <div id='sq1'></div>
+        <div id='tet'><p>I enjoy using photography to record the beautiful moments I see in life. 
+            Here are some of the photos I take. Technology used are generally Adobe Lightroom and Iphone 14 Pro. </p></div>
+            <Image src={sq} alt='Nanjing Third Bridge' className='gallery'></Image>
+            <Image src={wq} alt='Nanjing Fifth Bridge' className='gallery'></Image>
 
-        <div id='tet'><p>This page is quite similar to an instagram page. The only difference is that, here I post more pictures than I do on my instagram
-            account.</p></div><div id="beijingTime"></div>
 
-            
+
+
             </> 
     )
 }
