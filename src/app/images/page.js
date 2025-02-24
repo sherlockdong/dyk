@@ -1,8 +1,12 @@
 'use client'
 import React from 'react'
+import { Button } from "@/components/ui/button"
+
+
 import Image from 'next/image'
 import sq from './sq.jpg'
 import wq from './wq.jpg'
+import Login from "../../components/login"
 
 const imag= () => {
     
@@ -14,7 +18,9 @@ const imag= () => {
             <Image src={sq} alt='Nanjing Third Bridge' className='gallery'></Image>
             <Image src={wq} alt='Nanjing Fifth Bridge' className='gallery'></Image>
 
-
+            <div>
+      <Button>Click me</Button>
+    </div>
 
 
             </> 
