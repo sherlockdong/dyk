@@ -1,10 +1,9 @@
 "use client";
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-
-// Import Analytics, but use it only in the browser
 import { getAnalytics } from "firebase/analytics";
+
 const firebaseConfig = {
   apiKey: "AIzaSyAKaBLp2bKycHP2YKRwfdrBmMQkb-tJmK0",
   authDomain: "personalweb-df71c.firebaseapp.com",
@@ -14,9 +13,9 @@ const firebaseConfig = {
   appId: "1:444555015917:web:f2bc8185f6ca375ed2bee4",
   measurementId: "G-WJK243VWLK"
 };
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
 
+// Initialize Firebase only if no apps have been initialized
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApps()[0];
 
 // Prevent Analytics from running in server-side environments
 let analytics;

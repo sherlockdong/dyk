@@ -1,10 +1,18 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { auth, db } from "../../firebase"; // Adjusted path
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { 
+  collection, 
+  query, 
+  where, 
+  orderBy, 
+  onSnapshot, 
+  getDocs, 
+  deleteDoc, 
+  doc 
+} from "firebase/firestore";
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -13,35 +21,64 @@ const Profile = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+    const unsubscribeAuth = onAuthStateChanged(auth, (currentUser) => {
       if (!currentUser) {
-        // Redirect to home page if there is no authenticated user
+        // Redirect if there is no authenticated user
         router.push("/");
       } else {
         setUser(currentUser);
-        const activitiesQuery = query(
-          collection(db, "activities"),
-          where("uid", "==", currentUser.uid)
+        const activitiesRef = collection(db, "userActivities");
+        const q = query(
+          activitiesRef,
+          where("userId", "==", currentUser.uid),
+          orderBy("timestamp", "desc")
         );
-        const querySnapshot = await getDocs(activitiesQuery);
-        const userActivities = [];
-        querySnapshot.forEach((doc) => {
-          userActivities.push({ id: doc.id, ...doc.data() });
-        });
-        setActivities(userActivities);
+        const unsubscribeActivities = onSnapshot(
+          q,
+          (snapshot) => {
+            const userActivities = snapshot.docs.map((doc) => ({
+              id: doc.id,
+              ...doc.data(),
+            }));
+            setActivities(userActivities);
+            setLoading(false);
+          },
+          (error) => {
+            console.error("Error fetching activities: ", error);
+            setLoading(false);
+          }
+        );
+        // Clean up the activities listener when component unmounts
+        return () => unsubscribeActivities();
       }
-      setLoading(false);
     });
-    return () => unsubscribe();
+    return () => unsubscribeAuth();
   }, [router]);
 
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      // After sign out, redirect to the home page
       router.push("/");
     } catch (error) {
       console.error("Error signing out:", error);
+    }
+  };
+
+  // Function to clear all recent activities for the current user
+  const handleClearActivities = async () => {
+    if (!user) return;
+    try {
+      const activitiesRef = collection(db, "userActivities");
+      const q = query(activitiesRef, where("userId", "==", user.uid));
+      const snapshot = await getDocs(q);
+      const deletePromises = [];
+      snapshot.forEach((docSnapshot) => {
+        deletePromises.push(deleteDoc(doc(db, "userActivities", docSnapshot.id)));
+      });
+      await Promise.all(deletePromises);
+      setActivities([]); // Clear the local state
+    } catch (error) {
+      console.error("Error clearing activities:", error);
     }
   };
 
@@ -50,7 +87,7 @@ const Profile = () => {
   }
 
   return (
-    <div>
+    <div className="user">
       <h1>{user.email}'s Profile</h1>
       <button onClick={handleLogout}>Logout</button>
       <h2>Your Activities:</h2>
@@ -58,13 +95,18 @@ const Profile = () => {
         <ul>
           {activities.map((activity) => (
             <li key={activity.id}>
-              {activity.description || "No Description Provided"}
+              <strong>{activity.activityType.toUpperCase()}</strong> on content ID: {activity.contentId} at{" "}
+              {activity.timestamp?.seconds
+                ? new Date(activity.timestamp.seconds * 1000).toLocaleString()
+                : "Pending..."}
             </li>
           ))}
         </ul>
       ) : (
         <p>You have no activities recorded.</p>
       )}
+      {/* Clear Activities Button */}
+      <button onClick={handleClearActivities}>Clear Activities</button>
     </div>
   );
 };

@@ -2,13 +2,15 @@
 
 import Login from "../../components/login";
 import Regis from "../../components/registration";
+import Goog from "../../components/googlesignin"
 
 const AuthPage = () => {
   return (
     <div>
       <Login />
-      <p>Do you want to register?</p>
+      <p>Or, first time? </p>
       <Regis />
+      <Goog />
     </div>
   );
 };

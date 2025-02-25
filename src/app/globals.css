@@ -343,3 +343,17 @@ p{
     @apply text-foreground;
   }
 }
+.loginout{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-left: 10em;
+}
+.loginout h1{
+  margin-left: 2em;
+  font-size: 20px;
+}
+.loginout button{
+  font-size: 20px;
+}
+.user {
+  margin-left: 10em;
+}
