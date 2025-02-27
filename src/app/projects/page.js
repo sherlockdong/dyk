@@ -9,6 +9,9 @@ export default function proj() {
             <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold">DeepSeek API Integration</h1>
       <ChatComponent />
+    Schedule with Me! :
+
+    <Link href="projects/schedule">Click</Link>
     </div>
 
       

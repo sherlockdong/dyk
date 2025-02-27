@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { auth } from "../firebase"; // Adjusted path to reach project-root/firebase.js
+import { auth } from "../firebase"; // Adjust the path as needed
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
 const Login = () => {
@@ -10,7 +10,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const router = useRouter();
 
-  // Redirect to profile if already logged in
+  // Redirect if already logged in via Firebase
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -20,6 +20,7 @@ const Login = () => {
     return () => unsubscribe();
   }, [router]);
 
+  // Handle email/password login
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -30,8 +31,22 @@ const Login = () => {
     }
   };
 
+  // Initiate Google OAuth for Calendar access
+  const handleGoogleCalendarSignIn = async () => {
+    try {
+      const res = await fetch("/api/auth/getAuthUrl");
+      const data = await res.json();
+      if (data.authUrl) {
+        window.location.href = data.authUrl;
+      }
+    } catch (err) {
+      console.error("Error initiating Google OAuth:", err);
+    }
+  };
+
   return (
-<div className="loginout">      <h1>Login</h1>
+    <div className="loginout">
+      <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Email:</label>
@@ -52,9 +67,18 @@ const Login = () => {
           />
         </div>
         {error && <p style={{ color: "red" }}>{error}</p>}
-        <button type="submit" className="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Sign in</button>
-
-      </form></div>
+        <button
+          type="submit"
+          className="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+        >
+          Sign in
+        </button>
+      </form>
+      <hr style={{ margin: "20px 0" }} />
+      <button onClick={handleGoogleCalendarSignIn}>
+        Sign in with Google for Calendar Access
+      </button>
+    </div>
   );
 };
 
