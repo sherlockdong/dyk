@@ -48,7 +48,7 @@ const LikeButton = ({ userId, imageId }) => {
   };
 
   return (
-    <button onClick={handleToggleLike} style={{ backgroundColor: liked ? "red" : "initial" }}>
+    <button id="likebut" onClick={handleToggleLike} style={{ backgroundColor: liked ? "red" : "initial" }}>
       {liked ? "Unlike" : "Like"}
     </button>
   );

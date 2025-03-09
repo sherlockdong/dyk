@@ -114,6 +114,15 @@ a {
   font-weight: 400;
   line-height: 40px;
 }
+#Footer a,
+#upper a {
+  transition: color 0.3s ease;
+}
+
+#Footer a:hover,
+#upper a:hover {
+  color: lightgrey;
+}
 #NF{
   text-align: center;
   font-size: 44px;
@@ -364,4 +373,61 @@ p{
   left: 50% !important;
   transform: translate(-50%, -50%) !important;
   z-index: 9999 !important;
+}
+
+#likebut {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+/* Alternative: use a gradient or a shadow effect */
+#likebut {
+  background-image: linear-gradient(to bottom, #333, #444);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+#likebut:hover {
+  color: #ccc;
+}
+
+#likebut:active {
+  background-color: #555;
+}
+
+#likebut span {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#likebut .icon {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background-size: contain;
+}
+
+/* Add a hover effect to the icon */
+#likebut:hover .icon {
+  opacity: 0.5;
+}
+#likebut {
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#likebut .outline {
+  border: none;
+  outline: none;
+}
+#likebut-primary {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+#likebut-secondary {
+  background-color: #f7f7f7;
+  color: #333;
+  padding: 5px 15px;
 }

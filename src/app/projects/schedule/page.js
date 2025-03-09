@@ -1,24 +1,26 @@
 "use client";
-import React, { useEffect, useState } from 'react';
-import Script from 'next/script';
+import React, { useEffect, useState } from "react";
+import Script from "next/script";
 
 const CalendarPage = () => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [localTime, setLocalTime] = useState("");
+  const [timezone, setTimezone] = useState("");
 
-  // Fetch events from your custom API endpoint
+  // Fetch events from API
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch('/api/calendar/events');
+        const response = await fetch("/api/calendar/events");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
         setEvents(data);
       } catch (err) {
-        console.error('Error fetching events:', err);
+        console.error("Error fetching events:", err);
         setError(err.message);
       } finally {
         setLoading(false);
@@ -28,50 +30,62 @@ const CalendarPage = () => {
     fetchEvents();
   }, []);
 
+  // Fetch user's IP and timezone
+  useEffect(() => {
+    const fetchUserTimezone = async () => {
+      try {
+        const ipResponse = await fetch("https://ip-api.com/json/");
+        const ipData = await ipResponse.json();
+        const userTimezone = ipData.timezone;
+
+        setTimezone(userTimezone);
+
+        // Fetch local time using the obtained timezone
+        const timeResponse = await fetch(`http://worldtimeapi.org/api/timezone/${userTimezone}`);
+        const timeData = await timeResponse.json();
+
+        // Format the time properly
+        const date = new Date(timeData.datetime);
+        setLocalTime(date.toLocaleTimeString());
+
+        // Update local time every second
+        const interval = setInterval(() => {
+          setLocalTime(new Date().toLocaleTimeString("en-US", { timeZone: userTimezone }));
+        }, 1000);
+
+        return () => clearInterval(interval); // Cleanup interval on unmount
+
+      } catch (err) {
+        console.error("Error fetching IP/timezone:", err);
+        setTimezone("Unknown Timezone");
+      }
+    };
+
+    fetchUserTimezone();
+  }, []);
+
   if (loading) return <p>Loading calendar...</p>;
   if (error) return <p>Error loading events: {error}</p>;
 
   return (
     <div>
-      <h1>Your Calendar Events</h1>
-      {events.length ? (
-        <ul>
-          {events.map((event) => (
-            <li key={event.id}>
-              <strong>{event.summary}</strong> - {event.start.dateTime || event.start.date}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No events found.</p>
-      )}
-
-      {/* Google Calendar Embed */}
-      <iframe 
-        src="https://calendar.google.com/calendar/embed?src=your_calendar_id&ctz=Your_Time_Zone" 
-        style={{ border: 0 }} 
-        width="800" 
-        height="600" 
-        frameBorder="0" 
-        scrolling="no"
-      ></iframe>
+      {/* Display Local Time */}
+      <h2>Current Time in {timezone || "your location"}: {localTime}</h2>
 
       {/* Calendly Scheduling Widget */}
       <h2>Schedule an Event with Me</h2>
-      {/* Load Calendly's external widget script */}
       <Script 
         src="https://assets.calendly.com/assets/external/widget.js" 
         strategy="afterInteractive" 
       />
-      {/* Load Calendly's CSS */}
       <link 
         href="https://assets.calendly.com/assets/external/widget.css" 
         rel="stylesheet" 
       />
       <div 
         className="calendly-inline-widget" 
-        data-url="https://calendly.com/your-username" 
-        style={{ minWidth: '320px', height: '630px' }}
+        data-url="https://calendly.com/sherlockdong2007" 
+        style={{ minWidth: "320px", height: "630px" }}
       ></div>
     </div>
   );
