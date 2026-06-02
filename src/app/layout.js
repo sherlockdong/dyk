@@ -1,8 +1,9 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "../comps/header"
+import Header from "../comps/header";
+import Footer from "../comps/footer";
 import { AuthProvider } from './profile/authenti';
-import Footer from "../comps/footer"
+import ScrollProvider from "../components/ScrollProvider"; 
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,11 +14,19 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}><AuthProvider >
-        <Header />
-        {children}  {/* ✅ Only include children here */}
-        <Footer /></AuthProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className}>
+        <AuthProvider>
+          <ScrollProvider>
+            <Header />
+            {/* ADD YOUR LEFT PADDING HERE */}
+            {/* pl-8 gives a nice gap, pl-20 gives a massive asymmetrical gap */}
+            <main className="min-h-screen pl-8 md:pl-16 overflow-x-hidden">
+              {children}
+            </main>
+            <Footer />
+          </ScrollProvider>
+        </AuthProvider>
       </body>
     </html>
   );
