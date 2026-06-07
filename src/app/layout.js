@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
 import Header from "../comps/header";
 import Footer from "../comps/footer";
 import { AuthProvider } from './profile/authenti';
@@ -14,14 +15,18 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    
     <html lang="en" suppressHydrationWarning>
+      <Analytics/>
       <body className={inter.className}>
         <AuthProvider>
           <ScrollProvider>
+            
             <Header />
             {/* ADD YOUR LEFT PADDING HERE */}
             {/* pl-8 gives a nice gap, pl-20 gives a massive asymmetrical gap */}
             <main className="min-h-screen pl-8 md:pl-16 overflow-x-hidden">
+              
               {children}
             </main>
             <Footer />

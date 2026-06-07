@@ -77,9 +77,6 @@ export default function InterestsSection() {
 
               {/* Text Block */}
               <div className="w-full md:w-1/2 flex flex-col gap-4 text-left">
-                <span className="font-mono text-xs text-primary tracking-widest uppercase font-bold">
-                  // Core Focus Block 0{idx + 1}
-                </span>
                 <h3 className="font-heading text-3xl font-bold tracking-tight text-foreground">
                   {item.title}
                 </h3>

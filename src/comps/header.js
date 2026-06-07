@@ -59,27 +59,6 @@ const Header = () => {
             );
           })}
         </nav>
-
-        {/* RIGHT SIDE: Dynamic Auth Action Module */}
-       <div className="z-10 flex w-40 shrink-0 items-center justify-end">
-          {user ? (
-            <Link
-              href="/profile"
-              className="flex items-center gap-2 rounded-full border border-border/40 bg-secondary/50 px-4 py-1.5 font-mono text-xs font-medium text-foreground transition-all hover:border-primary/30 hover:bg-secondary"
-            >
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" />
-              <span className="max-w-[120px] truncate">{user.email}</span>
-            </Link>
-          ) : (
-            <Link
-              href="/component"
-              className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 font-mono text-xs font-medium text-primary-foreground shadow transition-all hover:scale-[1.02] hover:bg-primary/90 active:scale-[0.98]"
-            >
-              Login
-            </Link>
-          )}
-        </div>
-
       </div>
     </header>
   );
