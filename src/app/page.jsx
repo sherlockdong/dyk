@@ -3,6 +3,10 @@ import Link from "next/link";
 import InterestsSection from "../components/InterestSection";
 
 export default function Home() {
+  useEffect(() => {
+    fetch('/api/visitor-info').catch(err => console.error(err));
+  }, []);
+
   return (
     <div className="flex flex-col items-center w-full">
 
