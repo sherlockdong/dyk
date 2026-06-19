@@ -2,41 +2,16 @@ This is Sherlock Dong 's Personal Website.
 
 ## Welcome!!
 
-# Website Structure
-1. Home
-The landing page that provides a brief introduction to who I am, including a short bio and a featured project or recent update.
+### What happens here?
 
-2. About Me
-A more detailed section about my background, skills, and interests. This section may include:
+As expressed, this is the personal website for Sherlock Dong. It does NOT serve any professional purposes, i.e., I do not wish to use this as a CV / Portofolio, but as a playground for:
 
-Personal and professional background
-Education and certifications
-Hobbies and interests
+1, my other website projects. Before employing new technologies I would try them out here first, to see if they are actually cool, or would not fit.
 
-3. Projects
-A showcase of my personal and professional projects. Each project includes:
+2, for fun. I started doing this when I wa extremely bored, so now I just continued doing it.
 
-A brief description of the project
-The technology stack used (e.g., languages, frameworks, tools)
-Links to live demos, GitHub repositories, or case studies
-4. Blog/Articles
-A section for any blog posts or articles I write. This may include topics related to my field of work, personal reflections, or hobbies.
+I did attach my instagram account and email address in the footer, so I would be willing to connect via this website. 
 
-5. Contact
-A section where visitors can reach out to me. It might include:
+That is all I want to write now, so good bye. 
 
-A contact form
-Links to social media profiles
-Email address
-Technology Stack
-This website was built using:
-
-CSS3: The backbone of the website, providing structure and styling.
-JavaScript: For interactive elements and dynamic features.
-
-More projects, articles, or sections will be added as I continue developing new skills and content.
-How to Contribute (Optional)
-If you find any bugs or have suggestions for improvements, feel free to open an issue or submit a pull request if the website code is hosted publicly on GitHub.
-
-## How to Contribute
-text me through Github, or use the contact methods in my website!
+(Updated June 2026)
