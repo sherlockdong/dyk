@@ -1,4 +1,7 @@
 // src/app/page.jsx
+"use client"; // 1. Tell Next.js this component runs on the client browser
+
+import { useEffect } from "react"; // 2. Explicitly import the hook
 import Link from "next/link";
 import InterestsSection from "../components/InterestSection";
 
