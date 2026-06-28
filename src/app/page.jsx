@@ -33,7 +33,7 @@ export default function Home() {
             Email
           </Link>
           <Link
-            href="/https://github.com/sherlockdong" target="_blank"
+            href="https://github.com/sherlockdong" target="_blank"
             className="inline-flex h-11 items-center justify-center rounded-md border border-border bg-transparent px-8 font-mono text-xs font-bold text-foreground transition-all hover:bg-secondary hover:text-foreground"
           >
             Github
