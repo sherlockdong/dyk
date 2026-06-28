@@ -1,6 +1,6 @@
 // src/components/LikeButton.js
 import React, { useState, useEffect } from "react";
-import { logActivity } from "../app/profile/logactivity";
+import { logActivity } from "../app/profile_arc/logactivity";
 import { db } from "../firebase";
 import { doc, getDoc, setDoc, deleteDoc, serverTimestamp } from "firebase/firestore";
 
