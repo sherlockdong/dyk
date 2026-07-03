@@ -1,7 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
-import { AuthProvider } from './profile_arc/authenti';
 import ScrollProvider from "../components/ScrollProvider";
 
 const inter = Inter({ subsets: ["latin"] });
