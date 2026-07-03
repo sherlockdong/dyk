@@ -14,15 +14,15 @@ export default function Home() {
     <div className="flex flex-col items-center w-full">
 
       {/* HERO — visible immediately, no scroll trigger */}
-      <section className="w-full max-w-5xl px-6 pt-48 pb-32 flex flex-col items-start gap-6">
+      <section className="w-full max-w-5xl px-6 pt-16 pb-32 flex flex-col items-start gap-6">
         <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight text-foreground">
           Sherlock Dong <br />
           <span className="text-primary">Amature Athlete</span> <br />
-          <span className="text-primary"> Wanna-be Cook</span> <br />
+          <span className="text-primary"> Professional Cook</span> <br />
         </h1>
 
         <p className="max-w-2xl font-mono text-base text-muted-foreground leading-relaxed mt-4">
-          This is the website for Sherlock Dong. For contact, please use the following methods. I am currently otherwise occupied, so I have shifted the logic of this website to a minimal, yet functional form.
+          This is the website for Sherlock Dong. For contact, please use the following methods.
         </p>
 
         <div className="flex flex-wrap items-center gap-4 mt-8">
@@ -39,6 +39,25 @@ export default function Home() {
             Github
           </Link>
         </div>
+        <p className="max-w-2xl font-mono text-base text-muted-foreground leading-relaxed mt-4">
+          Currently working on:{' '}
+          <Link
+            href="https://www.ibm.com/think/topics/arima-model"
+            target="_blank"
+            className="custom-link"
+          >
+            ARIMA model
+          </Link>{' '}
+          integration with{' '}
+          <Link
+            href="https://openwearables.io/"
+            className="custom-link"
+          >
+            Open-Wearables
+          </Link>
+        </p>
+        <br />
+        Collab welcomed.
       </section>
     </div>
   );

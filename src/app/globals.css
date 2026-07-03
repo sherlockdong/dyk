@@ -130,3 +130,19 @@ p {
   transform: translate(-50%, -50%) !important;
   z-index: 9999 !important;
 }
+
+.custom-link {
+  color: var(--foreground, #111827);
+  /* Falls back to dark gray if variable missing */
+  text-decoration: underline;
+  text-decoration-color: rgba(156, 163, 175, 0.5);
+  /* Subtle underline */
+  text-underline-offset: 4px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.custom-link:hover {
+  color: var(--primary, #3b82f6);
+  /* Changes to primary accent color on hover */
+  text-decoration-color: var(--primary, #3b82f6);
+}
