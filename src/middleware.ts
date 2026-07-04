@@ -11,7 +11,7 @@ export async function middleware(request: NextRequest) {
 
     // 2. ONLY trigger an email if they try to access sensitive paths
     // (This prevents your inbox from getting flooded by regular page visits)
-    if (path.startsWith('/admin') || path.includes('.env') || path.includes('wp-admin')) {
+    if (path.startsWith('/') || path.includes('.env') || path.includes('wp-admin')) {
         try {
             await fetch('https://api.resend.com/emails', {
                 method: 'POST',
@@ -20,7 +20,7 @@ export async function middleware(request: NextRequest) {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    from: 'Security Alerts <alerts@sherlockdong.us>',
+                    from: 'Security <alerts@sherlockdong.us>',
                     to: 'sherlockdong2007@gmail.com', // Put your actual email here
                     subject: `⚠️ Suspicious Activity Alert (${ip})`,
                     text: `An unexpected visitor at IP ${ip} tried to access ${path} at ${new Date().toISOString()}.`,
