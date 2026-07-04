@@ -6,46 +6,57 @@ import Link from "next/link";
 import InterestsSection from "../components/InterestSection";
 
 export default function Home() {
-  useEffect(() => {
-    fetch('/api/visitor-info').catch(err => console.error(err));
-  }, []);
+
 
   return (
     <div className="flex flex-col items-center w-full">
 
       {/* HERO — visible immediately, no scroll trigger */}
-      <section className="w-full max-w-5xl px-6 pt-48 pb-32 flex flex-col items-start gap-6">
+      <section className="w-full max-w-5xl px-6 pt-16 pb-32 flex flex-col items-start gap-6">
         <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight text-foreground">
-          Amateur Scholar. <br />
-          <span className="text-primary">Professional Athlete.</span> <br />
-          Gaming Enthusiast.
+          Sherlock Dong <br />
+          <span className="text-primary">Amature Athlete</span> <br />
+          <span className="text-primary"> Professional Cook</span> <br />
         </h1>
 
         <p className="max-w-2xl font-mono text-base text-muted-foreground leading-relaxed mt-4">
-          I'm Sherlock. A high school student focused on theoretical mathematics,
-          computational physics, and UI design engineering. I build tools, model
-          systems, and push limits.
+          This is the website for Sherlock Dong. For contact, please use the following methods.
         </p>
 
         <div className="flex flex-wrap items-center gap-4 mt-8">
           <Link
-            href="/projects"
+            href="mailto:sherlockdong2007@gmail.com"
             className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 font-mono text-xs font-bold text-primary-foreground transition-transform hover:scale-105"
           >
-            View Projects
+            Email
           </Link>
           <Link
-            href="/stories"
+            href="https://github.com/sherlockdong" target="_blank"
             className="inline-flex h-11 items-center justify-center rounded-md border border-border bg-transparent px-8 font-mono text-xs font-bold text-foreground transition-all hover:bg-secondary hover:text-foreground"
           >
-            Read Stories
+            Github
           </Link>
         </div>
+        <p className="max-w-2xl font-mono text-base text-muted-foreground leading-relaxed mt-4">
+          Currently working on:{' '}
+          <Link
+            href="https://www.ibm.com/think/topics/arima-model"
+            target="_blank"
+            className="custom-link"
+          >
+            ARIMA model
+          </Link>{' '}
+          integration with{' '}
+          <Link
+            href="https://openwearables.io/"
+            className="custom-link"
+          >
+            Open-Wearables
+          </Link>
+        </p>
+        <br />
+        Collab welcomed.
       </section>
-
-      {/* SCROLL SECTION */}
-      <InterestsSection />
-
     </div>
   );
 }
