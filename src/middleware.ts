@@ -15,10 +15,17 @@ export async function middleware(request: NextRequest) {
 
             if (proxyResponse.ok) {
                 const data = await proxyResponse.json();
+                const CLOUDFLARE_ASN = 13335;
+                const isCloudflareWarp = data.asn === CLOUDFLARE_ASN;
+                const isFlagged = !isCloudflareWarp && (data.block === 1 || data.block === 2);
 
-                // Block value 1 (VPN/Proxy) or 2 (Mixed/Suspicious)
-                if (data.block === 1 || data.block === 2) {
-                    return new NextResponse('Access Denied: VPN or Proxy connections are restricted.', { status: 403 });
+                if (isFlagged) {
+                    const alreadyVerified = request.cookies.get('human_verified')?.value === 'true';
+                    if (!alreadyVerified) {
+                        const verifyUrl = new URL('/verify', request.url);
+                        verifyUrl.searchParams.set('redirect', path);
+                        return NextResponse.redirect(verifyUrl);
+                    }
                 }
             }
         } catch (error) {
