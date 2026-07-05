@@ -36,6 +36,7 @@ export default function Home() {
           >
             Github
           </Link>
+
         </div>
         <p className="max-w-2xl font-mono text-base text-muted-foreground leading-relaxed mt-4">
           Currently working on:{' '}
@@ -50,12 +51,14 @@ export default function Home() {
           <Link
             href="https://openwearables.io/"
             className="custom-link"
+            target="_blank"
           >
             Open-Wearables
           </Link>
+
         </p>
         <br />
-        Collab welcomed.
+        <p> Collab welcomed:<Link href="https://github.com/sherlockdong/OWandARIMA" target="_blank" className="custom-link">Link</Link>.</p>
       </section>
     </div>
   );
