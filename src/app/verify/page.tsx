@@ -1,9 +1,9 @@
 'use client';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import Script from 'next/script';
 
-export default function VerifyPage() {
+function VerifyContent() {
     const params = useSearchParams();
     const router = useRouter();
     const redirectTo = params.get('redirect') || '/';
@@ -55,5 +55,13 @@ export default function VerifyPage() {
             )}
             {error && <p style={{ color: 'red' }}>{error}</p>}
         </div>
+    );
+}
+
+export default function VerifyPage() {
+    return (
+        <Suspense fallback={<div style={{ textAlign: 'center', marginTop: '4rem' }}>Loading...</div>}>
+            <VerifyContent />
+        </Suspense>
     );
 }
