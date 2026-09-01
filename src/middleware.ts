@@ -2,16 +2,40 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export async function middleware(request: NextRequest) {
-    // 1. Extract the IP address provided by Vercel/Hosting
     const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'Unknown IP';
     const path = request.nextUrl.pathname;
 
-    // Log it to your Vercel/server console so you can see it working
-    console.log(`[Visitor Log] IP: ${ip} accessed ${path}`);
+    // 1. VPN / PROXY DETECTION
+    // We skip the proxy check for local development IPs so you don't lock yourself out
+    if (ip !== '::1' && ip !== '127.0.0.1' && ip !== 'Unknown IP') {
+        try {
+            const proxyResponse = await fetch(`https://v2.api.iphub.info/ip/${ip}`, {
+                headers: { 'X-Key': process.env.IPHUB_API_KEY || '' }
+            });
 
-    // 2. ONLY trigger an email if they try to access sensitive paths
-    // (This prevents your inbox from getting flooded by regular page visits)
-    if (path.startsWith('/') || path.includes('.env') || path.includes('wp-admin')) {
+            if (proxyResponse.ok) {
+                const data = await proxyResponse.json();
+                const CLOUDFLARE_ASN = 13335;
+                const isCloudflareWarp = data.asn === CLOUDFLARE_ASN;
+                const isFlagged = !isCloudflareWarp && (data.block === 1 || data.block === 2);
+
+                if (isFlagged) {
+                    const alreadyVerified = request.cookies.get('human_verified')?.value === 'true';
+                    if (!alreadyVerified) {
+                        const verifyUrl = new URL('/verify', request.url);
+                        verifyUrl.searchParams.set('redirect', path);
+                        return NextResponse.redirect(verifyUrl);
+                    }
+                }
+            }
+        } catch (error) {
+            // Fails silently if the proxy API goes down, allowing traffic to pass normally
+        }
+    }
+
+    // 2. SECURITY EMAIL ALERTS
+    // IMPORTANT: Make sure you don't use path.startsWith('/') in production
+    if (path.startsWith('/admin') || path.includes('.env') || path.includes('wp-admin') || path.includes('.git')) {
         try {
             await fetch('https://api.resend.com/emails', {
                 method: 'POST',
@@ -21,29 +45,22 @@ export async function middleware(request: NextRequest) {
                 },
                 body: JSON.stringify({
                     from: 'Security <alerts@sherlockdong.us>',
-                    to: 'sherlockdong2007@gmail.com', // Put your actual email here
+                    to: 'sherlockdong2007@gmail.com',
                     subject: `⚠️ Suspicious Activity Alert (${ip})`,
                     text: `An unexpected visitor at IP ${ip} tried to access ${path} at ${new Date().toISOString()}.`,
                 }),
             });
         } catch (error) {
-            console.error('Failed to send security alert email:', error);
+            // Fails silently
         }
     }
 
-    // Allow the request to proceed normally
+    // 3. ALLOW NORMAL TRAFFIC
     return NextResponse.next();
 }
 
-// 3. The Matcher: Tells Next.js exactly which routes to run this code on
 export const config = {
     matcher: [
-        /*
-         * Match all request paths except for the ones starting with:
-         * - _next/static (static files)
-         * - _next/image (image optimization files)
-         * - favicon.ico (favicon file)
-         */
         '/((?!_next/static|_next/image|favicon.ico).*)',
     ],
 };

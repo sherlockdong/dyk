@@ -34,8 +34,27 @@ export default function Home() {
           >
             Github
           </Link>
-        </div>
 
+        </div>
+        <p className="max-w-2xl font-mono text-base text-muted-foreground leading-relaxed mt-4">
+          Currently working on:{' '}
+          <Link
+            href="https://www.ibm.com/think/topics/arima-model"
+            target="_blank"
+            className="custom-link"
+          >
+            ARIMA model
+          </Link>{' '}
+          integration with{' '}
+          <Link
+            href="https://openwearables.io/"
+            className="custom-link"
+          >
+            Open-Wearables
+          </Link>
+        </p>
+        <br />
+        Collab welcomed.
       </section>
 
 
