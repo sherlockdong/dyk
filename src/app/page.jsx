@@ -18,9 +18,11 @@ export default function Home() {
         </h1>
 
         <p className="max-w-2xl font-mono text-base text-muted-foreground leading-relaxed mt-4">
-          This is the website for Sherlock Dong. For contact, please use the following methods.
+          This is the website for Sherlock Dong. <br />
+          Class of 2027, Outside Linebacker: <Link href="https://www.maxpreps.com/ga/rabun-gap/rabun-gap-nacoochee-eagles/athletes/sherlock-dong/?careerid=sv92viqcr42rb">
+            MaxPreps
+          </Link>
         </p>
-
         <div className="flex flex-wrap items-center gap-4 mt-8">
           <Link
             href="mailto:sherlockdong2007@gmail.com"
