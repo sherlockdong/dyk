@@ -19,9 +19,7 @@ export default function Home() {
 
         <p className="max-w-2xl font-mono text-base text-muted-foreground leading-relaxed mt-4">
           This is the website for Sherlock Dong. <br />
-          Class of 2027, Outside Linebacker: <Link href="https://www.maxpreps.com/ga/rabun-gap/rabun-gap-nacoochee-eagles/athletes/sherlock-dong/?careerid=sv92viqcr42rb">
-            MaxPreps
-          </Link>
+          Class of 2027, Linebacker & Defensive End
         </p>
         <div className="flex flex-wrap items-center gap-4 mt-8">
           <Link
