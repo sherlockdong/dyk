@@ -49,7 +49,7 @@ export default function Home() {
 
           <p className="max-w-2xl font-mono text-base text-muted-foreground leading-relaxed mt-4">
             This is the website for Sherlock Dong. <br />
-            Class of 2027, Linebacker &amp; Defensive End
+            A person with some hobbies
           </p>
           <div className="flex flex-wrap items-center gap-4 mt-8">
             <Link
