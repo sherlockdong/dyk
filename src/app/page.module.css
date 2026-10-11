@@ -291,3 +291,144 @@ margin-bottom: 10px;
 .mad h3{
   color: red;
 }
+
+.playbook {
+  width: 320px;
+  max-width: 100%;
+  justify-self: center;
+  padding: 18px;
+  border: 1px solid rgba(147, 197, 253, 0.3);
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(30, 64, 125, 0.55), rgba(7, 20, 46, 0.75));
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.playbookHeader {
+  display: flex;
+  justify-content: space-between;
+  color: #bfdbfe;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.field {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  margin: 12px auto 8px;
+  overflow: hidden;
+  border: 1px solid rgba(191, 219, 254, 0.15);
+  border-radius: 12px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(147, 197, 253, 0.04) 0 34px,
+    transparent 34px 70px
+  );
+}
+
+.yardLine {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  border-top: 1px dashed rgba(191, 219, 254, 0.2);
+}
+
+.yardLine:nth-child(1) { top: 20%; }
+.yardLine:nth-child(2) { top: 40%; }
+.yardLine:nth-child(3) { top: 60%; }
+.yardLine:nth-child(4) { top: 80%; }
+
+.route {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.route path {
+  stroke: #7dd3fc;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  animation: drawRoute 4.5s ease-in-out infinite;
+}
+
+.startMarker,
+.endMarker {
+  position: absolute;
+  color: #e0f2fe;
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.startMarker { left: 38px; top: 217px; }
+.endMarker { left: 233px; top: 43px; color: #fde68a; }
+
+.football {
+  position: absolute;
+  width: 24px;
+  height: 15px;
+  border: 2px solid #fed7aa;
+  border-radius: 50%;
+  background: #b45309;
+  box-shadow: 0 0 18px rgba(251, 191, 36, 0.55);
+  offset-path: path("M 46 227 C 83 221, 76 158, 124 155 S 183 187, 182 115 S 222 73, 241 55");
+  offset-anchor: center;
+  offset-rotate: 0deg;
+  transform: rotate(-28deg);
+  animation: runRoute 4.5s ease-in-out infinite;
+}
+
+.football::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  border-top: 2px solid white;
+  left: 6px;
+  top: 5px;
+}
+
+.replayButton {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 2px 2px;
+  color: #e0f2fe;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 180ms ease;
+}
+
+.replayButton:hover { color: #fcd34d; }
+.replayButton:focus-visible { outline: 2px solid #fcd34d; outline-offset: 4px; }
+
+@keyframes drawRoute {
+  0%, 8% { stroke-dashoffset: 420; }
+  70%, 100% { stroke-dashoffset: 0; }
+}
+
+@keyframes runRoute {
+  0%, 8% { offset-distance: 0%; }
+  70%, 100% { offset-distance: 100%; }
+}
+
+@media (min-width: 900px) {
+  .playbook { justify-self: end; }
+}
+
+@media (max-width: 360px) {
+  .playbook { padding: 7px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route path { animation: none; stroke-dashoffset: 0; }
+  .football { animation: none; offset-distance: 100%; }
+}

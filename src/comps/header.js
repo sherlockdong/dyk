@@ -7,6 +7,7 @@ import { auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
 const navLinks = [
+  { href: "/fragments", label: "Fragments" },
   { href: "/projects", label: "Projects" },
   { href: "/images", label: "Images" },
   { href: "/stories", label: "Stories" },

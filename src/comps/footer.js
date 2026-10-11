@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 const footerLinks = [
+  { href: '/fragments', label: 'Fragments' },
   { href: '/projects', label: 'Projects' },
   { href: '/images', label: 'Images' },
   { href: '/stories', label: 'Stories' },
